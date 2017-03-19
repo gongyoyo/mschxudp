@@ -39,10 +39,26 @@ easy dump and build mschxudp(Win10 pinyin user define phrase) file.
 ```
 * build
 ```
-$ ./mschxudp.py [-o out.txt]
+$ ./mschxudp.py
 Enter a phrase(',pinyin,phrase,candidate,candidate2'):,aaa,bbbb,2,3
 Enter a phrase(',pinyin,phrase,candidate,candidate2'):#bbbbb#不不不不不不不不不,322#3#5   
 outfile = out.txt
 ```
 
+```
+$ cat aa.txt
+,aaaaaa,aaaaaaaa,3,5
+,bbbbbbbb,BBBBBBBBBB,7,8
+$ ./mschxudp.py < aa.txt -o aa.msudp
+phrase format(',pinyin,phrase,candidate,candidate2')
+(3, 5) aaaaaa aaaaaaaa
+(7, 8) bbbbbbbb BBBBBBBBBB
+outfile = aa.msudp
 
+```
+
+# 与深蓝词库转换工具搭配使用导入搜狗词库
+
+1. 打开[深蓝词库转换工具](https://github.com/studyzy/imewlconverter/releases)后,词库输出格式选择**用户自定义短语**
+2. 设置自定义短语格式：``,编码,短语,排序位置,7`` 输出文件名称 aa.txt
+3.  $ ./mschxudp.py < aa.txt -o aa.msudp

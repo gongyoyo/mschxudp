@@ -58,8 +58,12 @@ def main(argv=None):
         from mschxudp_file import MschxudpFileBuilder;
         ifb = MschxudpFileBuilder();
         
+        print("phrase format(',pinyin,phrase,candidate,candidate2')");
         while True:
-            line = input("Enter a phrase(',pinyin,phrase,candidate,candidate2'):");
+            try:
+                line = input();
+            except EOFError:
+                break;
             if len(line) <= 1:
                 break;
             s = line.split(line[0])[1:5];
@@ -71,6 +75,7 @@ def main(argv=None):
             else:
                 try:
                     ifb.add_phrase((int(s[2]),int(s[3])), s[0], s[1])
+                    print((int(s[2]),int(s[3])), s[0], s[1])
                 except:
                     continue
             

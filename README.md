@@ -1,7 +1,5 @@
 # mschxudp
-easy dump and build mschxudp(Win10 pinyin user define phrase) file.
-
-打印和构建微软拼音的用户自定义短语文件。
+打印和构建微软拼音（或五笔）的用户自定义短语文件。
 
 # mschxudp file format
 **``_X``** 做后缀的字段表示 win10 1703 与 1607 有改动的部分
@@ -59,12 +57,12 @@ easy dump and build mschxudp(Win10 pinyin user define phrase) file.
 * `hanzi_offset = 8 + len(pinyin)`
 * `phrase_offsets[N] + offset + len(phrase) == phrase_offsets[N+1]`
 * `candidate2` 第一个字节代表短语在候选框位置
-# usage
-* dump
+# 用法
+* 打印
 ```
 ./mschxudp.py -d ChsPinyinUDP.lex
 ```
-* build
+* 构建
 
 ```
 $ cat in.txt
